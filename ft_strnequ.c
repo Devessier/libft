@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:51:50 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 12:54:07 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/13 15:23:57 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int			ft_strnequ(char const *s1, char const *s2, size_t n)
 {
+	if (!(s1 && s2))
+		return (0);
 	return (ft_strncmp(s1, s2, n) == 0);
 }

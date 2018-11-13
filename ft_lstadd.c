@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:48:24 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:47 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 12:05:58 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 12:07:01 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!(s1 && s2))
-		return (0);
-	return (ft_strcmp(s1, s2) == 0);
+	new->next = *alst;
+	*alst = new;
 }

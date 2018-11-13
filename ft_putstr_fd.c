@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:48:24 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:47 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 10:45:39 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 10:46:45 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	if (!(s1 && s2))
-		return (0);
-	return (ft_strcmp(s1, s2) == 0);
+	while (*s)
+		ft_putchar_fd(*s++, fd);
 }

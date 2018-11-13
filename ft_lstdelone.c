@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:48:24 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:47 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 11:41:11 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 11:46:48 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	if (!(s1 && s2))
-		return (0);
-	return (ft_strcmp(s1, s2) == 0);
+	del((*alst)->content, (*alst)->content_size);
+	ft_memdel((void **)alst);
 }

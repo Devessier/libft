@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:15:02 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 14:51:44 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/12 17:26:32 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char			*ft_strtrim(char const *s)
 {
 	size_t	len;
 
+	if (!s)
+		return (NULL);
 	while (*s && is_whitespace(*s))
 		s++;
 	len = ft_strlen(s);

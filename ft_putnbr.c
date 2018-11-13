@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:48:24 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:47 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 11:12:10 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 11:12:36 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+void	ft_putnbr(int n)
 {
-	if (!(s1 && s2))
-		return (0);
-	return (ft_strcmp(s1, s2) == 0);
+	ft_putnbr_fd(n, 1);
 }

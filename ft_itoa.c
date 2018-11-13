@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:48:24 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:02:47 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 09:57:50 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 10:38:29 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+char	*ft_itoa(int n)
 {
-	if (!(s1 && s2))
-		return (0);
-	return (ft_strcmp(s1, s2) == 0);
+	char	*str;
+	long	pow;
+	int		len;
+	char	sign;
+
+	pow = 1;
+	len = 1;
+	sign = n < 0 ? -1 : 1;
+	while (n / (pow *= 10))
+		len++;
+	pow /= 10;
+	if (!(str = (char *)malloc(sizeof(char) * (len + (n < 0) + 1))))
+		return (NULL);
+	if (n < 0)
+		*str++ = '-';
+	while (pow)
+	{
+		*str++ = (n / pow % 10) * sign + '0';
+		pow /= 10;
+	}
+	*str = '\0';
+	return (str - (len + (n < 0)));
 }

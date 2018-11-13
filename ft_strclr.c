@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 11:22:53 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 11:25:22 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/12 16:58:58 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_strclr(char *s)
 {
-	ft_bzero((void *)s, ft_strlen(s));
+	if (s)
+		ft_bzero((void *)s, ft_strlen(s));
 }

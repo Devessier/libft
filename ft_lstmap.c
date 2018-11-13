@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:56:16 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:23:20 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/11/12 12:10:50 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/11/12 13:57:32 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*tmp;
-	size_t	i;
+	t_list	*tmp;
+	t_list	*first;
+	t_list	*last;
+	t_list	*data;
 
-	if (!s)
+	if (!(lst && f))
 		return (NULL);
-	if (!(tmp = (char *)malloc(len + 1)))
-		return (NULL);
-	i = -1;
-	while (++i < len)
-		i[tmp] = s[start + i];
-	i[tmp] = '\0';
-	return (tmp);
+	last = NULL;
+	first = NULL;
+	while (lst)
+	{
+		data = f(lst);
+		if (!(tmp = ft_lstnew(data->content, data->content_size)))
+			return (NULL);
+		if (first == NULL)
+			first = tmp;
+		if (last != NULL)
+			last->next = tmp;
+		last = tmp;
+		lst = lst->next;
+	}
+	last->next = NULL;
+	return (first);
 }

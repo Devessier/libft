@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:45:30 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 12:45:48 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/12 17:01:51 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	char	*str;
 
+	if (!(s && f))
+		return (NULL);
 	i = -1;
 	len = ft_strlen(s);
 	if (!(str = ft_strnew(len)))
