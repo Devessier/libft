@@ -6,11 +6,11 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 11:06:58 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 11:11:02 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 12:14:02 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {

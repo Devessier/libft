@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 11:12:10 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/09 11:14:42 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 12:13:29 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_strnew(size_t size)
 {
 	char	*p;
 
-	if (!(p = (char *)malloc(size + 1)))
+	if (!(p = (char *)malloc(++size)))
 		return (NULL);
-	ft_bzero(p, size + 1);
+	ft_bzero(p, size);
 	return (p);
 }

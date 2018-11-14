@@ -6,27 +6,23 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:15:02 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:26:32 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 12:23:44 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define SPACE(C) ((C) == ' ' || (C) == '\n' || (C) == '\t')
 
-static int		is_whitespace(char c)
-{
-	return (c == ' ' || c == '\n' || c == '\t');
-}
-
-char			*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
 	size_t	len;
 
 	if (!s)
 		return (NULL);
-	while (*s && is_whitespace(*s))
+	while (*s && SPACE(*s))
 		s++;
 	len = ft_strlen(s);
-	while (len && is_whitespace(s[len - 1]))
+	while (len && SPACE(s[len - 1]))
 		len--;
 	return (ft_strsub(s, 0, len));
 }

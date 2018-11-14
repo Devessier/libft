@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 09:56:17 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:57:11 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 12:48:05 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ char		**ft_strsplit(char const *s, char c)
 	int		len;
 	char	**tab;
 
-	if (!s || !*s)
-		return (s ? ft_memalloc(sizeof(char **)) : NULL);
+	if (!(s && *s))
+		return (s ? (char **)ft_memalloc(sizeof(char **)) : NULL);
 	len = nb_words(s, c);
 	if (!(tab = (char **)malloc(sizeof(char *) * (len + 1))))
 		return (NULL);

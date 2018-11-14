@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:27:14 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/13 15:37:34 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 11:59:01 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct	s_list
 {
@@ -74,11 +75,11 @@ int				ft_tolower(int c);
 
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
+char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
 void			ft_strclr(char *s);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
-char			*ft_strnew(size_t size);
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
@@ -86,8 +87,8 @@ int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
-char			*ft_itoa(int n);
 char			**ft_strsplit(char const *s, char c);
+char			*ft_itoa(int n);
 
 /*
 ** Write functions
@@ -118,5 +119,10 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 void			ft_putf(const char *format, ...);
+void			ft_putf_va(int fd, const char *format, va_list args);
+void			ft_putf_fd(int fd, const char *format, ...);
+void			ft_lstadd_back(t_list **alst, t_list *new);
+t_list			*ft_lstat(t_list *lst, unsigned int pos);
+size_t			ft_lstsize(t_list *lst);
 
 #endif
