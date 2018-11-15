@@ -6,14 +6,18 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 09:20:04 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/14 14:17:22 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/11/14 14:31:06 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define CHAR(C) ((C) == 'c' || (C) == 'd' || (C) == 's' || (C) == '%')
 
-void	ft_putf_va(int fd, const char *format, va_list args)
+static	int		is_special_char(char c)
+{
+	return (c == 'c' || c == 'd' || c == 's' || c == '%');
+}
+
+void			ft_putf_va(int fd, const char *format, va_list args)
 {
 	while (*format)
 	{
@@ -27,7 +31,7 @@ void	ft_putf_va(int fd, const char *format, va_list args)
 				ft_putstr_fd(va_arg(args, char *), fd);
 			else
 				ft_putchar_fd(*format, fd);
-			format = format + (CHAR(format[1]) ? 2 : 1);
+			format = format + (is_special_char(format[1]) ? 2 : 1);
 		}
 		else
 			ft_putchar_fd(*format++, fd);
