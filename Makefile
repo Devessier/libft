@@ -6,7 +6,7 @@
 #    By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:13:12 by bdevessi          #+#    #+#              #
-#    Updated: 2018/11/14 14:03:42 by bdevessi         ###   ########.fr        #
+#    Updated: 2018/11/16 11:13:04 by bdevessi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCS += ft_strcmp.c
 SRCS += ft_strcpy.c
 SRCS += ft_strdel.c
 SRCS += ft_strdup.c
+SRCS += ft_strndup.c
 SRCS += ft_strequ.c
 SRCS += ft_striter.c
 SRCS += ft_striteri.c
