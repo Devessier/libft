@@ -6,13 +6,13 @@
 #    By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:13:12 by bdevessi          #+#    #+#              #
-#    Updated: 2018/11/16 11:13:04 by bdevessi         ###   ########.fr        #
+#    Updated: 2018/11/21 13:47:03 by bdevessi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes/
 
 RM = rm -f
 
@@ -91,7 +91,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-$(OBJS): libft.h
+$(OBJS): includes/libft.h
 
 clean:
 	$(RM) $(OBJS)
