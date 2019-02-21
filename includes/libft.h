@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:27:14 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/11/16 11:13:37 by bdevessi         ###   ########.fr       */
+/*   Updated: 2019/02/21 11:19:46 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 typedef struct	s_list
 {
@@ -24,6 +25,13 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_tring
+{
+	size_t	len;
+	size_t	cap;
+	char	*buff;
+}				t_string;
 
 /*
 ** Function of stdlib.h
@@ -81,6 +89,7 @@ void			ft_strdel(char **as);
 void			ft_strclr(char *s);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
+int				ft_stritercheck(char *str, int (*f)(int));
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
@@ -90,6 +99,8 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
+char			*ft_itoa_buff(int n, char *buffer);
+int				ft_abs(int n);
 
 /*
 ** Write functions
@@ -125,5 +136,22 @@ void			ft_putf_fd(int fd, const char *format, ...);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 t_list			*ft_lstat(t_list *lst, unsigned int pos);
 size_t			ft_lstsize(t_list *lst);
+
+/*
+** Functions for t_string manipulation
+*/
+
+t_string		ft_new_string(char *c, bool char_mode);
+bool			ft_concat_strings(t_string *this, char *string, size_t len);
+bool			ft_extend_string(t_string *this, size_t size);
+bool			ft_free_string(t_string *this);
+void			ft_putnstring(t_string *this, size_t start, size_t n);
+ssize_t			ft_min(ssize_t a, ssize_t b);
+
+/*
+** Bits manipulations functions
+*/
+
+uint32_t		ft_round_up_2n_pow(uint32_t n);
 
 #endif

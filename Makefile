@@ -6,13 +6,14 @@
 #    By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:13:12 by bdevessi          #+#    #+#              #
-#    Updated: 2018/11/21 13:47:03 by bdevessi         ###   ########.fr        #
+#    Updated: 2019/02/21 11:22:41 by bdevessi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CFLAGS = -Wall -Wextra -Werror -I includes/
+CFLAGS = -Wall -Wextra -Werror -I includes
+CC = gcc 
 
 RM = rm -f
 
@@ -83,6 +84,10 @@ SRCS += ft_strsub.c
 SRCS += ft_strtrim.c
 SRCS += ft_tolower.c
 SRCS += ft_toupper.c
+SRCS += strings.c
+SRCS += ft_bits.c
+SRCS += ft_stritercheck.c
+SRCS += ft_min.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -91,7 +96,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-$(OBJS): includes/libft.h
+$(OBJS): includes/libft.h Makefile
 
 clean:
 	$(RM) $(OBJS)

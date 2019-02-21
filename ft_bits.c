@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_bits.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 10:45:39 by bdevessi          #+#    #+#             */
-/*   Updated: 2019/02/21 11:24:28 by bdevessi         ###   ########.fr       */
+/*   Created: 2019/02/03 15:28:16 by bdevessi          #+#    #+#             */
+/*   Updated: 2019/02/04 09:37:29 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
-#include <unistd.h>
+#include <stdint.h>
 
-void	ft_putstr_fd(char const *s, int fd)
+uint32_t	ft_round_up_2n_pow(uint32_t n)
 {
-	const size_t	len = ft_strlen(s);
-
-	write(fd, s, len);
+	n += (n == 0);
+	n--;
+	n |= n >> 1;
+	n |= n >> 2;
+	n |= n >> 4;
+	n |= n >> 8;
+	n |= n >> 16;
+	return (++n);
 }
