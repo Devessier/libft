@@ -6,13 +6,13 @@
 #    By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:13:12 by bdevessi          #+#    #+#              #
-#    Updated: 2019/02/21 11:22:41 by bdevessi         ###   ########.fr        #
+#    Updated: 2019/02/22 12:29:57 by bdevessi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CFLAGS = -Wall -Wextra -Werror -I includes
+CFLAGS = -Wall -Wextra -Werror -I includes -g
 CC = gcc 
 
 RM = rm -f
@@ -88,6 +88,8 @@ SRCS += strings.c
 SRCS += ft_bits.c
 SRCS += ft_stritercheck.c
 SRCS += ft_min.c
+SRCS += ft_max.c
+SRCS += ft_positive.c
 
 OBJS = $(SRCS:.c=.o)
 
